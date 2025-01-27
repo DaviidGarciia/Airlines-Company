@@ -71,12 +71,12 @@ const navigate = useNavigate()
             <Card sx={{ maxwidth: '100vw', display: 'flex' }}>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Los Angeles
+                  Gran Canaria Apt. (LPA)
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  London
+                  Fuerteventura Apt. (FUE)
                 </Typography>
               </CardContent>
               <CardContent>
@@ -86,7 +86,7 @@ const navigate = useNavigate()
               </CardContent>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  350 €
+                  70 €
                 </Typography>
               </CardContent>
             </Card>
@@ -99,22 +99,22 @@ const navigate = useNavigate()
             >
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  London
+                  Fuerteventura Apt. (FUE)
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  Los Angeles
+                  Gran Canaria Apt. (LPA)
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  10:00:00
+                  08:00:00
                 </Typography>
               </CardContent>
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  320 €
+                  70 €
                 </Typography>
               </CardContent>
             </Card>

@@ -1,6 +1,7 @@
 #comparatorContent {
   padding-top: 100px;
-  height: 160vh;
+  width: 100vw;
+  height: 100vh;
   background-color: rgb(98, 245, 237);
   display: grid;
   grid-template-columns: 1fr  800px;
@@ -14,12 +15,12 @@
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  margin-left: 500px;
+  margin-left: 200px;
 }
 
 .resultados {
   width: 45vw;
-  height: 65vh;
+  height: 45vh;
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
@@ -27,9 +28,9 @@
 
 #ResultadosVuelta {
   grid-area: Vuelta;
-  margin-top: 150px;
+  margin-top: 100px;
   width: 45vw;
-  height: 65vh;
+  height: 45vh;
   background-color: aliceblue;
   display: flex;
   flex-direction: column;
@@ -54,9 +55,8 @@
 #ResumenContainer {
   grid-area: Resumen;
   margin-left: 250px;
-  width: 15vw;
-  height: 30vh;
-  background-color: black;
+  width: 25vw;
+  height: 80vh;
 }
 
 #FlightCard {

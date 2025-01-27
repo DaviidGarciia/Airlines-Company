@@ -231,6 +231,28 @@ select option {
   background-color: #01579b; /* Fondo azul aún más oscuro cuando se hace clic */
   transform: translateY(0); /* Elimina el efecto de elevación */
 }
+/* Estilos para el botón #Lupa */
+#inputSub {
+  background-color: whitesmoke; /* Fondo azul oscuro */
+  color: black; /* Texto blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 25px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  transition: all 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Efecto hover en el botón */
+#inputSub:hover {
+  background-color: whitesmoke; /* Fondo azul aún más oscuro cuando el mouse pasa por encima */ 
+}
+
+/* Efecto cuando el botón se presiona */
+#inputSub:active {
+  background-color: #01579b; /* Fondo azul aún más oscuro cuando se hace clic */
+  transform: translateY(0); /* Elimina el efecto de elevación */
+}
 label {
   font-family: 'Roboto', sans-serif; /* Fuente moderna y limpia */
   font-size: 20px; /* Tamaño de la fuente adecuado */
