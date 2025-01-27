@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./Payment.css"
 import Box from '@mui/material/Box';
 import FormLabel from '@mui/material/FormLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
@@ -52,7 +53,6 @@ export default function PaymentForm() {
   return (
     <>
       <div id="payment">
-  
         <Box
           sx={{
             display: 'flex',
