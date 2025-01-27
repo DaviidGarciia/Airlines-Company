@@ -3,14 +3,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #00ff22c0;
   height: 10vh;
   width: 100vw;
   align-content: center;
 }
 
 #ContenidoPagina {
-  background-color: rgb(255, 255, 253);
+  background-color:rgba(39, 236, 245, 0.2);
   display: grid;
   height: 200vh;
   grid-template-columns: 1fr 1fr 1fr;
@@ -57,12 +56,6 @@
   background-color: rgba(117, 227, 247, 0.753);
   border-top-right-radius: 25px;
   border-top-left-radius: 25px;
-}
-
-#Lupa {
-  grid-area: Lupa;
-  width: 50px;
-  height: 25px;
 }
 
 #Content {
@@ -144,6 +137,7 @@
   align-content: center;
 }
 
+
 #Promociones {
   grid-area: Promociones;
   margin-top: 180px;
@@ -152,32 +146,110 @@
   background-color: rgba(117, 227, 247, 0.753);
   border-radius: 25px;
   display: flex;
-  flex-direction: row;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
   padding: 10px;
 }
 
-#infoPromo {
-  width: 100%;
+#infoPromo,
+#SubPromo {
+  width: 45%; /* Establece un ancho adecuado para los dos divs */
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center; /* Centra el contenido dentro de cada div */
+  align-items: center; /* Centra los elementos dentro del div de forma horizontal */
+}
+
+#infoPromo {
+  /* Personalización adicional para #infoPromo si es necesario */
 }
 
 #SubPromo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  /* Personalización adicional para #SubPromo si es necesario */
 }
 
+/* Asegura que los inputs dentro de los divs se alineen bien */
 #inputEmail {
-  width: 25%;
+  padding: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 2px solid #00796b;
+  background-color: #ffffff;
+}
+/* Estilos para el select */
+select {
+  background-color: #e0f7fa; /* Fondo azul claro */
+  color: black; /* Texto en verde azulado (para complementar el azul claro) */
+  padding: 10px 15px; /* Espaciado interno */
+  border: 2px solid black; /* Borde sutil en el mismo tono verde azulado */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  transition: all 0.3s ease; /* Transición suave para cambios */
+  appearance: none; /* Quita el estilo por defecto del navegador */
+  width: 200px; /* Ancho del select */
 }
 
-#inputSub {
-  width: 15%;
-  align-self: self-end;
-  margin-right: 50px;
+/* Efecto hover en el select */
+select:hover {
+  border-color: whitesmoke; /* Cambia el borde a un azul más fuerte cuando pasa el mouse */
+  cursor: pointer;
 }
+
+/* Efecto cuando el select está en foco */
+select:focus {
+  border-color: whitesmoke; /* Cambia el borde a azul más fuerte */
+  outline: none; /* Elimina el contorno predeterminado del navegador */
+}
+
+/* Estilos para las opciones dentro del select */
+select option {
+  background-color: #ffffff; /* Fondo blanco para las opciones */
+  color: #00796b; /* Texto en verde azulado */
+  padding: 10px; /* Espaciado dentro de las opciones */
+}
+
+/* Estilos para el botón #Lupa */
+#Lupa {
+  background-color: whitesmoke; /* Fondo azul oscuro */
+  color: white; /* Texto blanco */
+  padding: 10px 20px; /* Espaciado interno */
+  border: none; /* Sin borde */
+  border-radius: 25px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de la fuente */
+  cursor: pointer; /* Cambia el cursor a puntero */
+  transition: all 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Efecto hover en el botón */
+#Lupa:hover {
+  background-color: whitesmoke; /* Fondo azul aún más oscuro cuando el mouse pasa por encima */ 
+}
+
+/* Efecto cuando el botón se presiona */
+#Lupa:active {
+  background-color: #01579b; /* Fondo azul aún más oscuro cuando se hace clic */
+  transform: translateY(0); /* Elimina el efecto de elevación */
+}
+label {
+  font-family: 'Roboto', sans-serif; /* Fuente moderna y limpia */
+  font-size: 20px; /* Tamaño de la fuente adecuado */
+  color: black; /* Color verde azulado para las etiquetas (combinando con el select y el botón) */
+  margin-bottom: 8px; /* Espacio debajo de la etiqueta */
+  display: block; /* Asegura que la etiqueta esté en su propia línea */
+  font-weight: 500; /* Peso de la fuente un poco más ligero para un toque moderno */
+  transition: all 0.3s ease; /* Transición suave para cambios */
+}
+/* Estilos para el input de tipo fecha */
+input[type="date"] {
+  background-color: #e0f7fa; /* Fondo azul claro */
+  color: black; /* Texto en verde azulado */
+  border: 2px solid black; /* Borde en verde azulado */
+  transition: all 0.3s ease; /* Transición suave para los cambios */
+  appearance: none; /* Quita los estilos predeterminados del navegador */
+  box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+
+
+

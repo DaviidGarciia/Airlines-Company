@@ -78,7 +78,7 @@ const navigate = useNavigate()
           <section id="BarraBuscar2">
             <div id="BarraBuscar3">
               <label>
-                Origin
+                Origin:
                 <select name="Origen" id="Origen">
                   {airports.map((airport) => (
                     <option key={airport.code} value={airport.id}>
@@ -88,7 +88,7 @@ const navigate = useNavigate()
                 </select>
               </label>
               <label>
-                Destination
+                Destination:
                 <select name="Destino" id="Destino">
                   {airports.map((airport) => (
                     <option key={airport.code} value={airport.id}>
@@ -98,7 +98,7 @@ const navigate = useNavigate()
                 </select>
               </label>
               <label>
-                Departure
+                Departure:
                 <input
                   type="date"
                   id="Ida"
@@ -106,7 +106,7 @@ const navigate = useNavigate()
                 />
               </label>
               <label>
-                Return
+                Return:
                 <input
                   type="date"
                   id="Vuelta"
@@ -114,7 +114,7 @@ const navigate = useNavigate()
                 />
               </label>
               <label>
-                Passengers
+                Passengers:
                 <select name="Pasajeros" id="Pasajeros">
                   <option value="1"> 1 passenger</option>
                   <option> 2 passenger</option>

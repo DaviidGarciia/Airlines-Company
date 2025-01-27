@@ -1,44 +1,133 @@
 #footer {
     display: flex;
     background-color: rgb(34, 34, 34);
-    height: 10vh;
+    height: 11vh;
     width: 100%;
-    align-content: center;
     color: white;
+    justify-content: space-between; /* Asegura que los elementos estén distribuidos */
+    align-items: center; /* Centra los elementos verticalmente */
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 #redes {
     display: flex;
-    height:50px;
-    margin-left: 750px;
-    padding-top: 15px;
-
+    align-items: center;
+    gap: 15px;
+    justify-content: flex-end; /* Alinea las redes a la derecha */
 }
-.red{
-    height:60px;
+
+.red {
+    height: 60px;
     width: 60px;
-    padding-right:5px;
+    padding-right: 5px;
     border-radius: 50%;
+    transition: transform 0.3s ease; /* Añadir transición para el hover */
+}
+
+.red:hover {
+    cursor: pointer;
+    transform: scale(1.1); /* Efecto de hover */
 }
 
 #info {
-    margin-top: 0;
-    padding-top: 5px;
-    margin-left: 35%;
-    text-align: center;
     display: flex;
     align-items: center;
-    align-content: center;
     gap: 20px;
+    flex-grow: 1; /* Esto hace que el texto ocupe todo el espacio disponible en el centro */
+    justify-content: center; /* Centra el contenido del texto */
 }
-.infoFooter:hover{
+
+.infoFooter:hover {
     color: aqua;
     cursor: pointer;
 }
-.red:hover{
-    cursor: pointer;
-}
-#logoFooter{
-    margin-left: 80px;
+
+#logoFooter {
+    display: block;
     padding: 5px;
+}
+
+/* Media Queries para diferentes tamaños de pantalla */
+
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    #footer {
+        flex-direction: column; /* Coloca los elementos en columna */
+        height: auto; /* Permite que el footer se ajuste automáticamente */
+        padding: 10px; /* Agrega algo de espacio en los bordes */
+    }
+
+    #redes {
+        margin-bottom: 10px; /* Espacio entre las redes y el texto */
+        justify-content: center; /* Centra los íconos de redes */
+    }
+
+    #info {
+        margin-left: 0; /* Elimina el margen izquierdo */
+        justify-content: center; /* Centra el contenido de info */
+        gap: 10px; /* Reduce el espacio entre los elementos */
+    }
+
+    .red {
+        height: 40px; /* Reducción de tamaño de los íconos */
+        width: 40px;
+    }
+
+    #logoFooter {
+        margin-left: 0; /* Elimina el margen izquierdo del logo */
+        margin-top: 10px; /* Agrega un pequeño espacio */
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #footer {
+        flex-direction: row; /* Mantiene los elementos en fila */
+        justify-content: space-between; /* Distribuye los elementos */
+    }
+
+    #redes {
+        gap: 20px; /* Ajusta el espacio entre los íconos de redes */
+    }
+
+    #info {
+        margin-left: auto;
+        gap: 15px; /* Ajusta el espacio entre los elementos */
+    }
+
+    .red {
+        height: 50px; /* Ajusta el tamaño de los íconos en pantallas medianas */
+        width: 50px;
+    }
+
+    #logoFooter {
+        margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) {
+    #footer {
+        flex-direction: row; /* Mantiene el diseño en fila para pantallas grandes */
+        justify-content: space-between; /* Distribuye los elementos */
+    }
+
+    #redes {
+        gap: 30px; /* Mantiene un espacio mayor entre los íconos */
+    }
+
+    #info {
+        margin-left: auto; /* Alinea el contenido de info a la derecha */
+        gap: 20px;
+    }
+
+    .red {
+        height: 60px; /* Tamaño original de los íconos */
+        width: 60px;
+    }
+
+    #logoFooter {
+        margin-left: 80px; /* Mantiene el margen original */
+    }
 }

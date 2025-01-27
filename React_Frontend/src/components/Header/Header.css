@@ -1,47 +1,113 @@
-#header{
+#header {
     margin: 0 auto;
     display: flex;
-    background-color: rgb(34, 34, 34) ;
-    height:12vh;
-    width:100vw;
-   /*  align-content: center; */
-    color:white;
+    background-color: rgb(34, 34, 34);
+    height: 12vh;
+    width: 100%;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box; /* Para asegurar que el padding no afecte el ancho total */
 }
-#logo{
+
+#logo {
     display: block;
-    margin-left:100px;
-    padding:5px;
+    padding: 5px;
     width: 100px;
 }
-#content{
+
+#content {
     display: flex;
     align-items: center;
-    align-content: center;
     gap: 50px;
+    justify-content: center;
+    flex-grow: 1;
 }
-.info{
-    margin-left: 300px;
-    display: block;
-    padding-top:5px;
+
+.info {
+    padding-top: 5px;
     text-align: center;
 }
+
 .info:hover {
     color: aqua;
     cursor: pointer;
 }
-#icon{
 
+#icon {
     display: block;
-    position: absolute;
-    margin-left:2000px;
+    margin-left: auto;
 }
 
-.MuiBox-root.css-i9gxme{
-    cursor:pointer;
+.MuiBox-root.css-i9gxme {
+    cursor: pointer;
     border-radius: 45%;
-    border-style:solid;
+    border-style: solid;
     border-color: black;
     background-color: white;
 }
 
+/* Media Queries para diferentes tamaños de pantalla */
 
+/* Pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+    #header {
+        flex-direction: column; /* Coloca los elementos en columna */
+        height: auto; /* Permite que el encabezado se ajuste automáticamente */
+        padding: 10px; /* Agrega algo de espacio en los bordes */
+    }
+
+    #content {
+        flex-direction: column; /* Los elementos dentro de content se alinean verticalmente */
+        gap: 20px; /* Reduce el espacio entre los elementos */
+    }
+
+    .info {
+        margin-top: 10px; /* Espaciado adicional en los elementos info */
+    }
+
+    #logo {
+        width: 80px; /* Ajusta el tamaño del logo en pantallas más pequeñas */
+    }
+}
+
+/* Pantallas medianas (tabletas) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    #header {
+        flex-direction: row; /* Asegura que los elementos estén en fila */
+        justify-content: space-between; /* Distribuye los elementos */
+    }
+
+    #content {
+        gap: 30px; /* Ajusta el espacio entre los elementos en pantallas medianas */
+    }
+
+    .info {
+        margin-top: 0;
+    }
+
+    #logo {
+        width: 90px; /* Ajusta el tamaño del logo */
+    }
+}
+
+/* Pantallas grandes (escritorios) */
+@media (min-width: 1025px) {
+    #header {
+        flex-direction: row; /* Mantiene el diseño en fila para pantallas grandes */
+        justify-content: space-between; /* Distribuye los elementos equitativamente */
+    }
+
+    #content {
+        gap: 50px; /* Mantiene un espacio más grande entre los elementos */
+    }
+
+    .info {
+        margin-top: 0;
+    }
+
+    #logo {
+        width: 100px; /* Mantiene el tamaño del logo en pantallas grandes */
+    }
+}
