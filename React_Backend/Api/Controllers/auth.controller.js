@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 const Users = require("../Models/Users.model");
 const Flights = require("../Models/Flights.model");
 
-/*const signUp = async (req, res) => {
+const signUp = async (req, res) => {
+  console.log("entro en SIGNUP");
   try {
     const findUser = await Users.findOne({
       where: {
@@ -33,64 +34,6 @@ const Flights = require("../Models/Flights.model");
   } catch (error) {
     console.log("Error signing up client", error);
     return res.status(500).json(error);
-  }
-};*/
-const signUp = async (req, res) => {
-  try {
-    console.log("entro en signup");
-    const { username, email, password, name, surname, dni, phone } = req.body;
-    console.log("Datos recibidos:", {
-      username,
-      email,
-      password,
-      name,
-      surname,
-      dni,
-      phone,
-    });
-
-    // Comprobación de existencia del usuario
-    const findUser = await Users.findOne({
-      where: {
-        [Op.or]: [{ username }, { email }], // Verifica si ya existe por username o email
-      },
-    });
-    console.log("Usuario encontrado en BD:", findUser);
-
-    if (findUser) {
-      console.log("Error: Username o email ya existen.");
-      return res
-        .status(400)
-        .json({ message: "Username or email already exists" });
-    }
-
-    // Encriptar contraseña
-    const salt = bcrypt.genSaltSync(10);
-    const hashedPassword = bcrypt.hashSync(password, salt);
-    console.log("Contraseña encriptada:", hashedPassword);
-
-    // Crear usuario en la base de datos
-    const user = await Users.create({
-      name,
-      surname,
-      username,
-      password: hashedPassword,
-      dni,
-      email,
-      phone,
-    });
-
-    console.log("Usuario creado en BD:", user);
-
-    // Generar token JWT
-    const payload = { email: user.email };
-    const token = jwt.sign(payload, "secret", { expiresIn: "1h" });
-    console.log("Token generado:", token);
-
-    return res.status(201).json({ token });
-  } catch (error) {
-    console.error("Error signing up user:", error);
-    return res.status(500).json({ message: "Internal server error" });
   }
 };
 
