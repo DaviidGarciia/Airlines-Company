@@ -1,113 +1,107 @@
 #header {
-    margin: 0 auto;
-    display: flex;
-    background-color: rgb(34, 34, 34);
-    height: 12vh;
-    width: 100%;
-    color: white;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    box-sizing: border-box; /* Para asegurar que el padding no afecte el ancho total */
+  margin: 0 auto;
+  display: flex;
+  background-color: rgb(34, 34, 34);
+  height: 12vh;
+  width: 100%;
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #logo {
-    display: block;
-    padding: 5px;
-    width: 100px;
+  display: block;
+  padding: 5px;
+  width: 100px;
+  transition: transform 0.3s ease-in-out;
 }
 
+#logo:hover {
+  transform: scale(1.1);
+}
+
+/* Botón de menú hamburguesa */
+#menu-icon {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s ease-in-out;
+}
+
+#menu-icon:hover {
+  color: aqua;
+}
+
+/* Menú */
 #content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+/* Estilos generales de los botones */
+.nav-button {
+  color: white !important;
+  font-size: 1rem !important;
+  text-transform: none !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease-in-out !important;
+  border-radius: 8px !important;
+  padding: 8px 16px !important;
+  border: 1px solid transparent !important;
+}
+
+.nav-button:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid aqua !important;
+  transform: scale(1.05);
+}
+
+/* Menú desplegable móvil */
+#content.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 12vh;
+  left: 0;
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.95);
+  text-align: center;
+  padding: 20px 0;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Ocultar el menú en pantallas grandes */
+@media (min-width: 768px) {
+  #content.open {
+    position: relative;
     display: flex;
-    align-items: center;
-    gap: 50px;
-    justify-content: center;
-    flex-grow: 1;
+    flex-direction: row;
+    background: none;
+    padding: 0;
+    transition: none;
+  }
 }
 
-.info {
-    padding-top: 5px;
-    text-align: center;
-}
-
-.info:hover {
-    color: aqua;
-    cursor: pointer;
-}
-
-#icon {
+/* Media Queries para móviles */
+@media (max-width: 768px) {
+  #menu-icon {
     display: block;
-    margin-left: auto;
-}
+  }
 
-.MuiBox-root.css-i9gxme {
-    cursor: pointer;
-    border-radius: 45%;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-}
+  #content {
+    display: none;
+  }
 
-/* Media Queries para diferentes tamaños de pantalla */
-
-/* Pantallas pequeñas (móviles) */
-@media (max-width: 600px) {
-    #header {
-        flex-direction: column; /* Coloca los elementos en columna */
-        height: auto; /* Permite que el encabezado se ajuste automáticamente */
-        padding: 10px; /* Agrega algo de espacio en los bordes */
-    }
-
-    #content {
-        flex-direction: column; /* Los elementos dentro de content se alinean verticalmente */
-        gap: 20px; /* Reduce el espacio entre los elementos */
-    }
-
-    .info {
-        margin-top: 10px; /* Espaciado adicional en los elementos info */
-    }
-
-    #logo {
-        width: 80px; /* Ajusta el tamaño del logo en pantallas más pequeñas */
-    }
-}
-
-/* Pantallas medianas (tabletas) */
-@media (min-width: 601px) and (max-width: 1024px) {
-    #header {
-        flex-direction: row; /* Asegura que los elementos estén en fila */
-        justify-content: space-between; /* Distribuye los elementos */
-    }
-
-    #content {
-        gap: 30px; /* Ajusta el espacio entre los elementos en pantallas medianas */
-    }
-
-    .info {
-        margin-top: 0;
-    }
-
-    #logo {
-        width: 90px; /* Ajusta el tamaño del logo */
-    }
-}
-
-/* Pantallas grandes (escritorios) */
-@media (min-width: 1025px) {
-    #header {
-        flex-direction: row; /* Mantiene el diseño en fila para pantallas grandes */
-        justify-content: space-between; /* Distribuye los elementos equitativamente */
-    }
-
-    #content {
-        gap: 50px; /* Mantiene un espacio más grande entre los elementos */
-    }
-
-    .info {
-        margin-top: 0;
-    }
-
-    #logo {
-        width: 100px; /* Mantiene el tamaño del logo en pantallas grandes */
-    }
+  #content.open {
+    display: flex;
+  }
 }

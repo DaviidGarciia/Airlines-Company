@@ -1,38 +1,64 @@
-import './Header.css'
-import logo from '../../assets/media/logoT.png'
-import {Link,useNavigate} from "react-router-dom"
-import { useState } from 'react'
-import { Box,Grid,Avatar } from '@mui/material'
+import './Header.css';
+import logo from '../../assets/media/logoT.png';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Box, Grid, Avatar, Button } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 
 function Header() {
-  const [logged,setLogged]= useState(!localStorage.getItem("token") ? false : true)
-  const navigate = useNavigate()
+  const [logged, setLogged] = useState(
+    !localStorage.getItem('token') ? false : true
+  );
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
   return (
-    <>
-        <div id="header">
-          <Link to="/">
-            <img id="logo" src={logo}></img>
-          </Link>
-            <div id="content">
-              <h2 className="info">Sustainability</h2>
-              <h2 className="info">About us</h2>
-              <h2 className="info">Contact</h2>
-              {!logged && <h2 className="info" onClick={()=>{navigate("/signup")}}>Get in!</h2> }
-              {!logged ? <h2 className="info" onClick={()=>{navigate("/login")}}>Not logged</h2> : 
-              <div id="icon">
-              <Box sx={{ flexGrow: 1 }}> 
-                <Grid xs display="flex" justifyContent="center" alignItems="center">
-                  <Avatar src={logo} onClick={()=>{navigate("/Profile")}} />
-               </Grid>
-              </Box>
-              </div>
-              }
+    <div id="header">
+      <Link to="/">
+        <img id="logo" src={logo} alt="Logo" />
+      </Link>
 
+      <div id="menu-icon" onClick={() => setMenuOpen(!menuOpen)}>
+        {menuOpen ? <CloseIcon /> : <MenuIcon />}
+      </div>
 
-            </div>
-        </div>
-    </>
-  )
+      <nav id="content" className={menuOpen ? 'open' : ''}>
+        <Button className="nav-button">Sustainability</Button>
+        <Button className="nav-button">About us</Button>
+        <Button className="nav-button">Contact</Button>
+
+        {!logged && (
+          <Button className="nav-button" onClick={() => navigate('/signup')}>
+            Sign up!
+          </Button>
+        )}
+
+        {!logged ? (
+          <Button className="nav-button" onClick={() => navigate('/login')}>
+            Sign in
+          </Button>
+        ) : (
+          <div id="icon">
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid
+                xs
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Avatar
+                  src={logo}
+                  onClick={() => navigate('/Profile')}
+                  sx={{ width: 40, height: 40, cursor: 'pointer' }}
+                />
+              </Grid>
+            </Box>
+          </div>
+        )}
+      </nav>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
