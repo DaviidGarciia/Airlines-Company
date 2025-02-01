@@ -2,11 +2,11 @@ const { DataTypes } = require("sequelize");
 
 const { sequelize } = require("../../Database/index");
 
-const allowedDomains = (["gmail.com","outlook.com"])
+const allowedDomains = ["gmail.com", "outlook.com"];
 const Users = sequelize.define(
   "Users",
   {
-    name: { 
+    name: {
       type: DataTypes.STRING(30),
       allowNull: false,
     },
@@ -71,6 +71,7 @@ const Users = sequelize.define(
     phone: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: "123456789",
       validate: {
         notEmpty: {
           msg: "El número de teléfono no puede estar vacío",
@@ -84,7 +85,7 @@ const Users = sequelize.define(
     role: {
       type: DataTypes.ENUM("admin", "client"),
       allowNull: false,
-      defaultValue:"client"
+      defaultValue: "client",
     },
   },
   { timestamps: false }

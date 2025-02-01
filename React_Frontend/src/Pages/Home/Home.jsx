@@ -227,7 +227,7 @@ const navigate = useNavigate()
             <Card sx={{ maxWidth: 345, marginTop: '20px' }}>
               <CardMedia
                 sx={{ height: 140 }}
-                image="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/60/63/0b/caption.jpg?w=500&h=400&s=1"
+                image="img/lanzarote.jpg"
                 title="Lanzarote"
               />
               <CardContent>

@@ -2,9 +2,9 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const Users = require("../Models/Users.model");
-const Flights = require("../Models/Flights.model")
+const Flights = require("../Models/Flights.model");
 
-const signUp = async (req, res) => {
+/*const signUp = async (req, res) => {
   try {
     const findUser = await Users.findOne({
       where: {
@@ -12,7 +12,6 @@ const signUp = async (req, res) => {
       },
     });
     if (findUser) {
-      
       return res.json({ message: "User already exists" });
     }
 
@@ -26,7 +25,6 @@ const signUp = async (req, res) => {
       password: req.body.password,
       dni: req.body.dni,
       email: req.body.email,
-      phone: req.body.phone,
     });
 
     const payload = { email: req.body.email };
@@ -36,27 +34,64 @@ const signUp = async (req, res) => {
     console.log("Error signing up client", error);
     return res.status(500).json(error);
   }
+};*/
+const signUp = async (req, res) => {
+  try {
+    const { username, email, password, name, surname, dni } = req.body;
+
+    // Comprobación de existencia del usuario
+    const findUser = await Users.findOne({
+      where: {
+        [Op.or]: [{ username }, { email }], // Verifica si ya existe por username o email
+      },
+    });
+    if (findUser) {
+      return res
+        .status(400)
+        .json({ message: "Username or email already exists" });
+    }
+
+    // Encriptar contraseña
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
+
+    // Crear usuario en la base de datos
+    const user = await Users.create({
+      name,
+      surname,
+      username,
+      password: hashedPassword,
+      dni,
+      email,
+    });
+
+    // Generar token JWT
+    const payload = { email: user.email };
+    const token = jwt.sign(payload, "secret", { expiresIn: "1h" });
+
+    return res.status(201).json({ token });
+  } catch (error) {
+    console.error("Error signing up user:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 const login = async (req, res) => {
   try {
-    /*if(req.body.username === "davidG" && req.body.password === "123456"){
-      const payload = { username: req.body.username };
-      const token = jwt.sign(payload, "secret", { expiresIn: "1h" });
-      return res.status(200).json({ token });
-    }*/
+    console.log("soy back");
     const user = await Users.findOne({
       where: {
         username: req.body.username,
+        password: req.body.password,
       },
     });
-
+    console.log(user);
     if (!user) {
       return res.status(404).send("Username or password wrong");
     }
 
-    const checkpass = bcrypt.compareSync(req.body.password, user.password);
-
+    const checkpass = req.body.password;
+    console.log(user.password);
     if (checkpass) {
       const payload = { username: req.body.username };
       const token = jwt.sign(payload, "secret", { expiresIn: "1h" });
@@ -69,21 +104,21 @@ const login = async (req, res) => {
     return res.status(500).json(error);
   }
 };
-const insertFly = async(req,res)=>{
+const insertFly = async (req, res) => {
   try {
     const flight = Flights.create({
       code: req.body.code,
       departure_time: req.body.departure_time,
-      arrival_time:req.body.arrival_time,
+      arrival_time: req.body.arrival_time,
       status: req.body.status,
-      capacity:req.body.capacity,
-      occupiedPlaces:req.body.occupiedPlaces,
-      price: req.body.price
-    })
+      capacity: req.body.capacity,
+      occupiedPlaces: req.body.occupiedPlaces,
+      price: req.body.price,
+    });
   } catch (error) {
     console.log(error);
   }
-}
+};
 const bulkSignup = async (req, res) => {
   try {
     // Obtener los usuarios a registrar desde el cuerpo de la solicitud
@@ -123,9 +158,8 @@ const bulkSignup = async (req, res) => {
   }
 };
 
-
 module.exports = {
   signUp,
   login,
-  bulkSignup
+  bulkSignup,
 };

@@ -4,6 +4,7 @@ const { Op } = require("sequelize");
 const Airport = require("../Models/Airport.model");
 
 const getAllFlights = async (req, res) => {
+  console.log("traigo flights");
   try {
     const getAllflights = await Flights.findAll();
     return res.status(200).json(getAllflights);
@@ -79,9 +80,7 @@ const searchFlights = async (req, res) => {
 
   // Parse dates from query parameters
   const searchDate = new Date(date);
-  const startOfDay = new Date((
-    searchDate.getDate()
-  ))
+  const startOfDay = new Date(searchDate.getDate());
   const endOfDay = new Date(
     searchDate.getFullYear(),
     searchDate.getMonth(),

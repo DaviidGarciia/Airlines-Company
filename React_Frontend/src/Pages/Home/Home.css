@@ -9,7 +9,7 @@
 }
 
 #ContenidoPagina {
-  background-color:rgba(39, 236, 245, 0.2);
+  background-color:rgba(39, 166, 245, 0.2);
   display: grid;
   height: 200vh;
   grid-template-columns: 1fr 1fr 1fr;
