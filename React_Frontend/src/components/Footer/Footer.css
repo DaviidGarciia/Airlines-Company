@@ -46,6 +46,12 @@
 #logoFooter {
     display: block;
     padding: 5px;
+    width: 100px; /* Mismo tamaño que el logo del header */
+    transition: transform 0.3s ease-in-out;
+}
+
+#logoFooter:hover {
+    transform: scale(1.1);
 }
 
 /* Media Queries para diferentes tamaños de pantalla */
@@ -102,7 +108,7 @@
     }
 
     #logoFooter {
-        margin-left: 20px; /* Ajusta el margen izquierdo del logo */
+        margin-left: 0px; /* Ajusta el margen izquierdo del logo */
     }
 }
 
@@ -128,6 +134,6 @@
     }
 
     #logoFooter {
-        margin-left: 80px; /* Mantiene el margen original */
+        margin-left: 0px; /* Mantiene el margen original */
     }
 }

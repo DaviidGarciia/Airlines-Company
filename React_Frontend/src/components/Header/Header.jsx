@@ -1,5 +1,5 @@
 import './Header.css';
-import logo from '../../assets/media/logoT.png';
+import logo from '../../assets/media/plane_logo.png';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { Box, Grid, Avatar, Button } from '@mui/material';
