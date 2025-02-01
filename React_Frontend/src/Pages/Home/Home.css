@@ -352,3 +352,124 @@
     width: 100%;
   }
 }
+/* Estilo general de la sección de promociones */
+#Promociones {
+  grid-area: Promociones;
+  width: 90%;
+  max-width: 1200px;
+  background: linear-gradient(135deg, rgba(0, 60, 145, 0.9), rgba(0, 140, 255, 0.85)); /* Degradado azul */
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin: 0 auto;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-align: center;
+}
+
+/* Estilo del texto en la sección de promociones */
+#infoPromo {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+#infoPromo h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#infoPromo ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#infoPromo ul li {
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+/* Estilos para la sección de suscripción */
+#SubPromo {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  padding: 20px;
+}
+
+#inputEmail {
+  width: 80%;
+  max-width: 400px;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #003366;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#inputEmail::placeholder {
+  color: #003366;
+  font-weight: bold;
+}
+
+/* Botón de suscripción */
+#inputSub {
+  background-color: #FFD700; /* Dorado */
+  color: #003366;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  margin-top: 15px;
+}
+
+#inputSub:hover {
+  background-color: #FFC107;
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.7);
+}
+
+/* Enlace de política de privacidad */
+#SubPromo p a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#SubPromo p a:hover {
+  text-decoration: underline;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #Promociones {
+    flex-direction: column;
+    padding: 25px;
+  }
+
+  #inputEmail {
+    width: 100%;
+  }
+
+  #inputSub {
+    width: 100%;
+  }
+}
+
+/* Ocultar las etiquetas cuando hay una selección */
+#Origen.MuiSelect-select ~ label.MuiInputLabel-shrink,
+#Destino.MuiSelect-select ~ label.MuiInputLabel-shrink {
+  display: none !important;
+}

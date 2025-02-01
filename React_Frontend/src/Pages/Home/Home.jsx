@@ -291,8 +291,7 @@ function Home() {
               placeholder="Ingrese su Correo"
             />
             <p>
-              Los datos personales facilitados serán tratados por Binter
-              Canarias como responsable del tratamiento, para el envío periódico
+              Los datos personales facilitados serán tratados por Reboot Fly como responsable del tratamiento, para el envío periódico
               de noticias, ofertas de vuelos, información sobre nuevas rutas,
               concursos y otras promociones. Podrás revocar tu consentimiento y
               darte de baja e este servicio mediante el enlace habilitado en

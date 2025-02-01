@@ -1,72 +1,86 @@
+/* Estilo general del comparador */
 #comparatorContent {
-  padding-top: 100px;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(98, 245, 237);
-  display: grid;
-  grid-template-columns: 1fr  800px;
-  gap: 0px 0px;
-  grid-template-areas:
-    'Flights Resumen';
+  padding-top: 60px;
+  width: 100%;
+  min-height: 100vh;
+  background: white;
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
 }
 
-#flights {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-  margin-left: 200px;
-}
-
+/* Tarjetas de vuelos con efecto glassmorphism */
 .resultados {
-  width: 45vw;
-  height: 45vh;
-  background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  transition: all 0.3s ease-in-out;
 }
 
-#ResultadosVuelta {
-  grid-area: Vuelta;
-  margin-top: 100px;
-  width: 45vw;
-  height: 45vh;
-  background-color: aliceblue;
-  display: flex;
-  flex-direction: column;
+.resultados:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.flightsContainer {
-  background-color: rgb(255, 255, 255);
-  height: 100%;
-  display: flex;
-  padding-top: 20px;
-  flex-direction: column;
-  align-items: center;
-}
-
-#InfoResultados {
-  grid-area: Info;
-  width: 45vw;
-  height: 20vh;
-  background-color: darkgoldenrod;
-}
-
+/* Contenedor de resumen con efecto moderno */
 #ResumenContainer {
-  grid-area: Resumen;
-  margin-left: 250px;
-  width: 25vw;
-  height: 80vh;
+  background: #F8F9FA;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 
-#FlightCard {
-  background-color: rgba(89, 214, 223, 0.986);
-  width: 80%;
-  display: flex;
-  flex-direction:row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 20px;
-  border: 1px solid #ccc;
+#ResumenContainer:hover {
+  transform: scale(1.02);
+}
+
+/* Botón estilizado */
+button {
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 12px 20px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-transform: none;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+  #comparatorContent {
+    padding: 20px;
+  }
+
+  #ResumenContainer {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .resultados {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #comparatorContent {
+    padding: 15px;
+  }
+
+  .resultados {
+    width: 100%;
+  }
+
+  #ResumenContainer {
+    width: 100%;
+    padding: 15px;
+  }
 }
