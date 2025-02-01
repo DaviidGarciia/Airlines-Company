@@ -1,44 +1,66 @@
-#PosicionHeader {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-  width: 100%;
-  align-content: center;
+/* Estilo uniforme para selects y campos de fecha */
+.MuiFormControl-root {
+  background-color: white !important;
+  border-radius: 10px !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.3s ease-in-out !important;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+/* Etiquetas bien visibles */
+.MuiInputLabel-root {
+  color: #003366 !important;
+  font-weight: bold !important;
 }
 
-#ContenidoPagina {
-  background-color: rgba(39, 166, 245, 0.2);
-  display: grid;
-  height: auto;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-template-rows: auto;
-  gap: 20px;
-  grid-template-areas:
-    'BarraBuscar'
-    'Contenido'
-    'Promociones';
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  flex-grow: 1; /* Permite que el contenido ocupe todo el espacio disponible */
+/* Bordes con mejor contraste */
+.MuiOutlinedInput-root {
+  border-radius: 10px !important;
+  transition: all 0.3s ease-in-out !important;
 }
 
-#BarraBuscar {
-  grid-area: BarraBuscar;
-  width: 100%;
-  height: auto;
+/* Asegurar que los campos de fecha tengan el mismo formato */
+.MuiInputBase-root {
+  border-radius: 10px !important;
+  height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
+/* Bordes con efecto hover */
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #0074E4 !important;
+}
+
+/* Efecto al estar en foco */
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #005BBB !important;
+  box-shadow: 0px 4px 10px rgba(0, 140, 255, 0.4) !important;
+}
+
+/* Placeholder estilizado en campos de fecha */
+.MuiInputBase-input::placeholder {
+  color: #003366 !important;
+  font-weight: bold !important;
+  opacity: 1 !important;
+}
+
+/* Ajuste para que el desplegable se expanda correctamente */
+.MuiPopover-root {
+  z-index: 1300 !important;
+}
+
+/* Opciones dentro del select */
+.MuiMenuItem-root {
+  font-weight: bold !important;
+  color: #003366 !important;
+}
+
+/* Ajustes en los inputs de fecha */
+.MuiTextField-root {
+  background-color: white !important;
+  border-radius: 8px !important;
+  padding: 5px !important;
+}
 #BarraBuscar2 {
   background-image: url('../../../img/avion-transformed\ \(2\).webp');
   background-size: cover;
@@ -50,25 +72,88 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 #BarraBuscar3 {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1100px;
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center; /* Centrar horizontalmente */
   align-items: center;
-  background-color: rgba(117, 227, 247, 0.753);
-  border-radius: 25px 25px 0 0;
-  padding: 10px;
+  background: linear-gradient(135deg, rgba(0, 60, 145, 0.9), rgba(0, 140, 255, 0.85)); /* Degradado azul */
+  border-radius: 20px;
+  padding: 30px;
+  margin: auto; /* Centrado automático */
+  margin-top: 70px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
 }
 
+/* Contenedor de cada label+input */
+#BarraBuscar3 label {
+  display: flex;
+  flex-direction: column; /* Alinear el texto encima del input */
+  align-items: center; /* Centrar los textos */
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para los selects e inputs */
+#BarraBuscar3 select,
+#BarraBuscar3 input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 2px solid #5DADE2; /* Azul celeste */
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  width: 180px;
+  background-color: white;
+  color: #003366;
+  text-align: center;
+}
+
+#BarraBuscar3 select:focus,
+#BarraBuscar3 input:focus {
+  border-color: #0074E4; /* Azul vibrante */
+  background-color: #E3F2FD; /* Azul muy claro */
+}
+/* Botón de búsqueda */
+#Lupa {
+  background-color: #012b53; /* Azul vibrante */
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+#Lupa:hover {
+  background-color: #011224; /* Azul intenso */
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px rgba(0, 140, 255, 0.7);
+}
+
+
+
+
+
+
+
+/* Fondo del contenido con tonos azulados */
 #Content {
   grid-area: Contenido;
   width: 100%;
   max-width: 1200px;
-  background-color: rgba(117, 227, 247, 0.753);
+  background-color: rgba(0, 123, 255, 0.2); /* Azul cielo semi-transparente */
   border-radius: 25px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -77,38 +162,28 @@ body {
   margin: 0 auto;
 }
 
+/* Ajuste de colores en las tarjetas de ofertas */
 .Oferta {
   width: 100%;
-  background-color: rgb(236, 236, 176);
+  background-color: rgba(0, 100, 200, 0.85); /* Azul medio */
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
   padding: 10px;
   border-radius: 10px;
+  color: white;
 }
 
 .Oferta:hover {
   transform: scale(1.05);
+  background-color: rgba(0, 80, 180, 0.9); /* Azul más oscuro */
 }
 
-#PosicionFooter {
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(236, 236, 176);
-  height: 10vh;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
+/* Sección de promociones */
 #Promociones {
   grid-area: Promociones;
   width: 90%;
   max-width: 1200px;
-  background-color: rgba(117, 227, 247, 0.753);
+  background-color: rgba(0, 150, 255, 0.2); /* Azul claro semi-transparente */
   border-radius: 25px;
   display: flex;
   flex-wrap: wrap;
@@ -118,33 +193,31 @@ body {
   margin: 0 auto;
 }
 
-#infoPromo,
-#SubPromo {
-  flex: 1;
-  min-width: 250px;
-  text-align: center;
-}
-
-/* Media queries para adaptar el diseño en móviles */
+/* Adaptaciones Responsivas */
 @media (max-width: 768px) {
-  #ContenidoPagina {
-    grid-template-areas:
-      'BarraBuscar'
-      'Contenido'
-      'Promociones';
-    max-width: 100%;
+   .MuiFormControl-root,
+  .MuiTextField-root {
+    width: 100%;
   }
-
   #BarraBuscar3 {
     flex-direction: column;
-    padding: 15px;
+    gap: 15px;
+    padding: 25px;
+    margin-top: 20px;
   }
+
+  #BarraBuscar3 select,
+  #BarraBuscar3 input {
+    width: 100%;
+  }
+
+  #Lupa {
+    width: 100%;
+  }
+
+
 
   #Content {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  #PosicionFooter {
-    position: relative;
   }
 }

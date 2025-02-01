@@ -1,5 +1,11 @@
 import './Home.css';
-import Search from '../../components/Search/Search';
+import {
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  TextField,
+} from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -77,51 +83,106 @@ function Home() {
         <Box id="BarraBuscar" component="form" onSubmit={handleSubmit}>
           <section id="BarraBuscar2">
             <div id="BarraBuscar3">
-              <label>
-                Origin:
-                <select name="Origen" id="Origen">
+              <FormControl
+                variant="outlined"
+                sx={{ minWidth: 190, bgcolor: 'white', borderRadius: 2 }}
+              >
+                <InputLabel sx={{ color: '#003366', fontWeight: 'bold' }}>
+                  Origin
+                </InputLabel>
+                <Select name="Origen" id="Origen" label="Origin">
                   {airports.map((airport) => (
-                    <option key={airport.code} value={airport.id}>
+                    <MenuItem key={airport.code} value={airport.id}>
                       {airport.name} ({airport.code})
-                    </option>
+                    </MenuItem>
                   ))}
-                </select>
-              </label>
-              <label>
-                Destination:
-                <select name="Destino" id="Destino">
+                </Select>
+              </FormControl>
+
+              {/* DESTINATION (Mismo estilo que ORIGIN) */}
+              <FormControl
+                variant="outlined"
+                sx={{ minWidth: 190, bgcolor: 'white', borderRadius: 2 }}
+              >
+                <InputLabel sx={{ color: '#003366', fontWeight: 'bold' }}>
+                  Destination
+                </InputLabel>
+                <Select name="Destino" id="Destino" label="Destination">
                   {airports.map((airport) => (
-                    <option key={airport.code} value={airport.id}>
+                    <MenuItem key={airport.code} value={airport.id}>
                       {airport.name} ({airport.code})
-                    </option>
+                    </MenuItem>
                   ))}
-                </select>
-              </label>
-              <label>
-                Departure:
-                <input
-                  type="date"
+                </Select>
+              </FormControl>
+
+              {/* DEPARTURE DATE (Placeholder con "Departure Date") */}
+              <FormControl
+                variant="outlined"
+                sx={{ minWidth: 190, bgcolor: 'white', borderRadius: 2 }}
+              >
+                <TextField
                   id="Ida"
+                  type="date"
+                  placeholder="Departure Date"
+                  InputLabelProps={{ shrink: true }}
+                  inputProps={{
+                    style: { color: '#003366', fontWeight: 'bold' },
+                  }}
+                  sx={{
+                    bgcolor: 'white',
+                    borderRadius: 2,
+                    '& input::placeholder': {
+                      color: '#003366',
+                      fontWeight: 'bold',
+                    },
+                  }}
                   onChange={handleDateDepartureChange}
                 />
-              </label>
-              <label>
-                Return:
-                <input
-                  type="date"
+              </FormControl>
+
+              {/* RETURN DATE (Placeholder con "Return Date") */}
+              <FormControl
+                variant="outlined"
+                sx={{ minWidth: 190, bgcolor: 'white', borderRadius: 2 }}
+              >
+                <TextField
                   id="Vuelta"
+                  type="date"
+                  placeholder="Return Date"
+                  InputLabelProps={{ shrink: true }}
+                  inputProps={{
+                    style: { color: '#003366', fontWeight: 'bold' },
+                  }}
+                  sx={{
+                    bgcolor: 'white',
+                    borderRadius: 2,
+                    '& input::placeholder': {
+                      color: '#003366',
+                      fontWeight: 'bold',
+                    },
+                  }}
                   onChange={handleDateReturnChange}
                 />
-              </label>
-              <label>
-                Passengers:
-                <select name="Pasajeros" id="Pasajeros">
-                  <option value="1"> 1 passenger</option>
-                  <option> 2 passenger</option>
-                </select>
-              </label>
+              </FormControl>
+
+              {/* PASSENGERS (igual que todos los demás) */}
+              <FormControl
+                variant="outlined"
+                sx={{ minWidth: 190, bgcolor: 'white', borderRadius: 2 }}
+              >
+                <InputLabel sx={{ color: '#003366', fontWeight: 'bold' }}>
+                  Passengers
+                </InputLabel>
+                <Select name="Pasajeros" id="Pasajeros" label="Passengers">
+                  <MenuItem value="1">1 Passenger</MenuItem>
+                  <MenuItem value="2">2 Passengers</MenuItem>
+                  <MenuItem value="3">3 Passengers</MenuItem>
+                  <MenuItem value="4">4 Passengers</MenuItem>
+                </Select>
+              </FormControl>
               <button id="Lupa" type="submit">
-                🔎
+                Search
               </button>
             </div>
           </section>
