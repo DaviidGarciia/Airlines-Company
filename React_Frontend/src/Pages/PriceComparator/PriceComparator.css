@@ -12,25 +12,40 @@
 .resultados {
   width: 100%;
   max-width: 700px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   padding: 25px;
   transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Efecto hover en tarjetas */
 .resultados:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
   box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor de vuelos */
+#flights {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
 }
 
 /* Contenedor de resumen con efecto moderno */
 #ResumenContainer {
-  background: #F8F9FA;
+  background: rgba(248, 249, 250, 0.9);
+  backdrop-filter: blur(12px);
   border-radius: 15px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
   text-align: center;
   transition: transform 0.3s ease-in-out;
 }
@@ -39,19 +54,71 @@
   transform: scale(1.02);
 }
 
-/* Botón estilizado */
+/* Títulos */
+h2, h3 {
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* Botones estilizados */
 button {
   font-size: 1.2rem;
   font-weight: bold;
-  border-radius: 8px;
-  padding: 12px 20px;
+  border-radius: 10px;
+  padding: 14px 24px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-transform: none;
+  background-color: #0074E4;
+  color: white;
+  border: none;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
   transform: scale(1.05);
+  background-color: #005BBB;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos de listas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  text-align: center;
+}
+
+ul li {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #003366;
+  padding: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Iconos en listas */
+ul li::before {
+  content: '✔';
+  color: #0074E4;
+  font-weight: bold;
+  font-size: 1.3rem;
+  margin-right: 10px;
+}
+
+/* Contenedor de la cabecera */
+.HrContainer {
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #005BBB;
+  padding-bottom: 10px;
 }
 
 /* Responsivo */
@@ -81,6 +148,10 @@ button:hover {
 
   #ResumenContainer {
     width: 100%;
-    padding: 15px;
+    padding: 20px;
+  }
+
+  button {
+    width: 100%;
   }
 }

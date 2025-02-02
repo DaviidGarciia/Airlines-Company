@@ -1,74 +1,71 @@
 import './FlightCard.css';
-import { useLocation } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { flightInfoToBack } from '../../services/auth';
-import Button from '../Button/Button';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Grid,
+  Button,
+  Box,
+} from '@mui/material';
 
 function FlightCard({ array, functionId, vuelo }) {
-  /*  const location = useLocation(); */
-  /* const { Origen, Destino, idaDate, vueltaDate } = location.state; */
-  /* const [flights, setFlights] = useState([]);
-  const [flightsOutGoing, setFlightsOutGoing] = useState([]);
-  const [flightsReturn, setFlightsReturn] = useState([]); */
-
-  /* const bringFlight = async () => {
-    try {
-      const flightsArr = await flightInfoToBack(
-        Origen,
-        Destino,
-        idaDate,
-        vueltaDate
-      );
-      setFlights(flightsArr);
-
-      if (flightsArr.outgoingFlights && flightsArr.outgoingFlights.length > 0) {
-        const resultOutGoing = flightsArr.outgoingFlights.map((viaje) => viaje);
-        setFlightsOutGoing(resultOutGoing);
-      }
-
-      if (flightsArr.returnFlights && flightsArr.returnFlights.length > 0) {
-        const resultReturn = flightsArr.returnFlights.map((viaje) => viaje);
-        setFlightsReturn(resultReturn);
-      }
-      console.log(flightsArr);
-    } catch (error) {
-      console.error('Error fetching flights:', error);
-      setFlights([]);
-      setFlightsOutGoing([]);
-      setFlightsReturn([]);
-    }
-  }; */
-
-  /* useEffect(() => {
-    bringFlight();
-  }, []); */
-
   const objectFlight = (data) => {
-    if (vuelo === 'Return') {
-      functionId({ id: data.id, outgoing: 0, return:  data.price  });
-    } else {
-      functionId({ id: data.id, outgoing: data.price, return: 0 });
-    }
+    functionId({
+      id: data.id,
+      outgoing: vuelo === 'Return' ? 0 : data.price,
+      return: vuelo === 'Return' ? data.price : 0,
+    });
   };
 
   return (
-    <div style={{ width: '40vw', marginLeft: '140px' }}>
+    <Box id="FlightCardContainer">
       {array.map((flight) => (
-        <div id="FlightCard" key={flight.id}>
-          <li key={flight.id}>{flight.code}</li>
-          <li key={flight.id}>{flight.departure_time.substr(0, 10)}</li>
-          <li key={flight.id}>{flight.departure_time.substr(11, 8)}</li>
-          <li key={flight.id}>{flight.price} €</li>
-          <Button
-            size="small"
-            text="Take Flight"
-            onClick={() => {
-              objectFlight({ id: flight.id, price: flight.price });
-            }}
-          />
-        </div>
+        <Card className="flight-card" key={flight.id}>
+          <CardContent>
+            <Grid container spacing={2} alignItems="center">
+              {/* Código de Vuelo */}
+              <Grid item xs={3}>
+                <Typography className="flight-code">{flight.code}</Typography>
+              </Grid>
+
+              {/* Fecha */}
+              <Grid item xs={3}>
+                <Typography className="flight-date">
+                  {flight.departure_time.substr(0, 10)}
+                </Typography>
+              </Grid>
+
+              {/* Hora */}
+              <Grid item xs={3}>
+                <Typography className="flight-time">
+                  {flight.departure_time.substr(11, 5)}
+                </Typography>
+              </Grid>
+
+              {/* Precio */}
+              <Grid item xs={2}>
+                <Typography className="flight-price">
+                  {flight.price} €
+                </Typography>
+              </Grid>
+
+              {/* Botón */}
+              <Grid item xs={1}>
+                <Button
+                  variant="contained"
+                  className="flight-button"
+                  onClick={() =>
+                    objectFlight({ id: flight.id, price: flight.price })
+                  }
+                >
+                  Take Flight
+                </Button>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       ))}
-    </div>
+    </Box>
   );
 }
 

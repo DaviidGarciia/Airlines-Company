@@ -1,0 +1,94 @@
+/* Contenedor principal de las tarjetas */
+#FlightCardContainer {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilo de la tarjeta */
+.flight-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  padding: 15px;
+}
+
+/* Efecto hover en la tarjeta */
+.flight-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Código de vuelo */
+.flight-code {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366;
+  text-align: center;
+}
+
+/* Fecha del vuelo */
+.flight-date {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0074E4;
+  text-align: center;
+}
+
+/* Hora del vuelo */
+.flight-time {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #003366;
+  text-align: center;
+}
+
+/* Precio del vuelo */
+.flight-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #005BBB;
+  text-align: center;
+}
+
+/* Botón */
+.flight-button {
+  background-color: #0074E4;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.flight-button:hover {
+  background-color: #005BBB;
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #FlightCardContainer {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .flight-card {
+    padding: 10px;
+  }
+
+  .flight-code, .flight-date, .flight-time, .flight-price {
+    font-size: 1rem;
+  }
+
+  .flight-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}

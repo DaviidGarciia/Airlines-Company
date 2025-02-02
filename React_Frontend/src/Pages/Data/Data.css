@@ -1,135 +1,135 @@
-#infoData{
-    border-radius: 10px;
-    align-content: center;
-    margin-left:500px ;
-    width: 60vw;
-    height:30vh;
-    color: white; 
-    align-items: center;
-}
-#dniT{
-    margin-left: 300px;
-}
-#dniTS{
-    margin-left: 300px;
-}
-#infoContact{
-    border-radius: 10px;
-    align-content: center;
-    margin-left: 500px;
-    width: 60vw;
-    height: 30vh;
-    background-color: blueviolet;
-    color: white;
-}
-h3{
-    margin-top: 50px;
-    text-align: center;
-}
-/* Reseteamos los márgenes y el padding para evitar discrepancias entre los navegadores */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Contenedor principal para el formulario */
+/* Estilo general */
 #data {
-    gap: 30px;
-    flex-direction: column;
-    display: flex;
-    justify-content: center; /* Espacio entre el contenedor izquierdo y derecho */
-    align-items: center;
-    padding: 50px;
-    background-color: rgba(39, 236, 245, 0.2);
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding: 50px;
+  background: white;
+  min-height: 100vh;
 }
 
-/* Contenedor izquierdo (información del pasajero) */
-#left-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centra los elementos horizontalmente */
-    width: 48%;
-    background-color:rgba(117, 227, 247, 0.753);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Contenedor derecho (información de contacto) */
+/* Contenedor de datos del pasajero y contacto */
+#left-container,
 #right-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centra los elementos horizontalmente */
-    width: 48%;
-    background-color:rgba(117, 227, 247, 0.753);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 40%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Contenedor de la imagen de avión en forma de columna a la derecha */
+/* Efecto hover en los contenedores */
+#left-container:hover,
+#right-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+/* Estilos de inputs de Material UI con bordes visibles */
+.MuiOutlinedInput-root {
+  font: inherit;
+  letter-spacing: inherit;
+  color: currentColor;
+  padding: 16.5px 14px;
+  border: 2px solid rgba(0, 0, 0, 0.21) !important; /* Borde negro visible */
+  box-sizing: content-box;
+  background: none;
+  height: 1.4375em;
+  margin: 0;
+  display: block;
+  min-width: 0;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover en los inputs */
+.MuiOutlinedInput-root:hover {
+  border: 2px solid #0074E4 !important;
+  box-shadow: 0px 4px 12px rgba(0, 116, 228, 0.3);
+}
+
+/* Focus en los inputs */
+.MuiOutlinedInput-root.Mui-focused {
+  border: 2px solid #005BBB !important;
+  box-shadow: 0px 4px 15px rgba(0, 91, 187, 0.4);
+}
+
+/* Botón */
+.continue-button {
+  background-color: #0074E4;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.continue-button:hover {
+  background-color: #005BBB;
+  transform: scale(1.05);
+  border: 2px solid #003366;
+}
+
+/* Contenedor de imagen */
 #airplane-column {
-    width: 30%; /* Ajusta el ancho de la columna con la imagen */
-    height: 100vh; /* Hace que la imagen ocupe toda la altura de la pantalla */
-    display:inline-flex;
-    background-size: cover; /* La imagen cubre todo el div */
-    background-position: center; /* Centra la imagen en el div */
-    border-radius: 10px;
-    margin-left: 20px; /* Espacio entre el contenido y la imagen */
+  width: 30%;
+  height: 100vh;
+  background-image: url("https://source.unsplash.com/800x1200/?airplane,sky");
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* Diseño de los TextFields dentro del contenedor */
-.MuiTextField-root {
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  #data {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  #left-container,
+  #right-container {
+    width: 80%;
+  }
+
+  #airplane-column {
     width: 100%;
-    margin-bottom: 15px;
+    height: 250px;
+  }
 }
 
-/* Diseño del botón en el formulario */
-.MuiButton-root {
-    margin-top: 20px;
-    background-color: #00bcd4;
-    color: white;
-    width: 100%;
-    padding: 12px 0;
-    border-radius: 5px;
-    text-transform: none;
-}
-
-/* Media queries para dispositivos más pequeños */
 @media (max-width: 768px) {
-    #data {
-        flex-direction: column; /* En pantallas pequeñas, apilamos los dos formularios */
-        padding: 20px;
-    }
+  #left-container,
+  #right-container {
+    width: 100%;
+    padding: 20px;
+  }
 
-    #left-container,
-    #right-container {
-        width: 100%; /* Los contenedores ocupan todo el ancho */
-        margin-bottom: 20px; /* Añadimos un margen entre los contenedores */
-    }
+  .MuiOutlinedInput-root {
+    padding: 14px 12px;
+  }
 
-    #airplane-column {
-        width: 100%; /* La imagen ocupa todo el ancho */
-        height: 200px; /* Reducimos la altura en pantallas pequeñas */
-        margin-left: 0; /* Sin margen */
-    }
-}
+  .continue-button {
+    padding: 10px 0;
+  }
 
-@media (max-width: 480px) {
-    /* Ajustes para pantallas de móviles pequeños */
-    .MuiTextField-root {
-        margin-bottom: 12px; /* Reducimos el espacio entre los campos */
-    }
-
-    .MuiButton-root {
-        padding: 10px 0; /* Reducimos el padding del botón */
-    }
-
-    #airplane-column {
-        height: 150px; /* Ajustamos la altura en móviles pequeños */
-    }
+  #airplane-column {
+    height: 200px;
+  }
 }

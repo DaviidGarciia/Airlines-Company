@@ -1,33 +1,118 @@
-#Resumen{
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(46, 134, 211);
-    width: 100%
+/* Contenedor del resumen con efecto glassmorphism */
+#Resumen {
+  width: 100%;
+  max-width: 450px;
+  background: rgba(0, 123, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15);
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
 }
 
-#Titulo{
-    display: flex;
-    justify-content: center;
+/* Hover en el resumen */
+#Resumen:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-
-#Locations{
-    background-color: aliceblue;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+/* Título */
+.summary-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 15px;
 }
 
-#Suma{
-    background-color: blanchedalmond;
-    height: 18.07vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items:center ;
-}
-#Resumen Button{
-    margin-left: 130px;
+/* Contenedor de ubicaciones */
+#Locations {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(0, 140, 255, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
+/* Flecha entre destinos */
+.arrow {
+  font-size: 1.5rem;
+  color: #0074E4;
+}
+
+/* Contenedor de precios */
+#Suma {
+  background: rgba(0, 60, 145, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Información de precios */
+.price-info {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #003366;
+}
+
+/* Precio */
+.price-value {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #005BBB;
+}
+
+/* Total */
+.total-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #0074E4;
+  margin-top: 10px;
+}
+
+/* Estilo de la lista de beneficios */
+.benefits-list {
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.benefits-list li {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #003366;
+}
+
+/* Botón */
+.flight-button {
+  background-color: #0074E4;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.flight-button:hover {
+  background-color: #005BBB;
+  transform: scale(1.05);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #Resumen {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .summary-title {
+    font-size: 1.5rem;
+  }
+
+  .flight-button {
+    width: 100%;
+  }
+}
