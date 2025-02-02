@@ -1,4 +1,119 @@
-#payment{
-    height:80vh;
-    background-color: rgba(39, 236, 245, 0.2);;
+/* Contenedor principal */
+#payment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f0f8ff, #d9eefe); /* Degradado azul claro */
+  padding: 50px;
+}
+
+/* Contenedor de la tarjeta de pago */
+.payment-container {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  border: 2px solid rgba(0, 116, 228, 0.8); /* Azul más vibrante */
+}
+
+/* Efecto hover en la tarjeta */
+.payment-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 8px 25px rgba(0, 116, 228, 0.3);
+}
+
+/* Título */
+.payment-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+/* Separador */
+.payment-divider {
+  width: 80%;
+  height: 2px;
+  background: rgba(0, 116, 228, 0.5);
+  margin: 15px auto;
+}
+
+/* Iconos de tarjeta */
+.card-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 116, 228, 0.1);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Estilos de inputs con bordes más visibles */
+.MuiOutlinedInput-root {
+  font: inherit;
+  color: currentColor;
+  padding: 16.5px 14px;
+  border: 2px solid rgba(0, 116, 228, 0.8) !important; /* Bordes azules más visibles */
+  box-sizing: content-box;
+  background: none;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover en los inputs */
+.MuiOutlinedInput-root:hover {
+  border: 2px solid #0074E4 !important;
+  box-shadow: 0px 4px 15px rgba(0, 116, 228, 0.3);
+}
+
+/* Focus en los inputs */
+.MuiOutlinedInput-root.Mui-focused {
+  border: 2px solid #005BBB !important;
+  box-shadow: 0px 6px 20px rgba(0, 91, 187, 0.4);
+}
+
+/* Botón de pago (Solución al problema de background-color) */
+.pay-button {
+  background-color: #0074E4 !important; /* Se fuerza el color con !important */
+  color: white !important; /* Se asegura que el texto sea blanco */
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  border: 2px solid rgba(0, 116, 228, 0.8);
+  box-shadow: 0px 4px 12px rgba(0, 116, 228, 0.2);
+ 
+}
+
+/* Hover en botón */
+.pay-button:hover {
+  background-color: #005BBB !important;
+  transform: scale(1.05);
+  border: 2px solid #003366;
+  box-shadow: 0px 6px 25px rgba(0, 116, 228, 0.3);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .payment-container {
+    max-width: 90%;
+    padding: 25px;
+  }
+
+  .MuiOutlinedInput-root {
+    padding: 14px 12px;
+  }
+
+  .pay-button {
+    padding: 10px 0;
+    
+  }
 }

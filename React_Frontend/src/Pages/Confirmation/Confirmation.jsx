@@ -1,51 +1,41 @@
-import "./Confirmation.css"
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Box, CardActionArea, CardActions } from '@mui/material';
-import {useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button"
+import './Confirmation.css';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActions,
+  Button,
+} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
-function Confirmation (){
-    const navigate = useNavigate()
-    return (
-      <>
-        <div id="confirmation">
-          <Box
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <Card sx={{ maxWidth: 345 }}>
-              
-                <CardMedia
-                  component="img"
-                  height="210"
-                  image="https://www.shutterstock.com/image-illustration/check-mark-icontick-symbol-260nw-590285786.jpg"
-                />
-                <CardContent>
-                  <Typography>Your flight was booked successfully</Typography>
-                </CardContent>
-              
-              <CardActions>
-                <Button size="small" text="Download on PDF" />
-                <Button
-                  size="small"
-                  text="Back to home"
-                  onClick={() => {
-                    navigate('/');
-                  }}
-                />
-              </CardActions>
-            </Card>
-          </Box>
-        </div>
-      </>
-    );
+function Confirmation() {
+  const navigate = useNavigate();
+
+  return (
+    <Box id="confirmation">
+      <Card className="confirmation-card">
+        <CardMedia
+          component="img"
+          className="confirmation-icon"
+          image="https://cdn-icons-png.flaticon.com/512/190/190411.png" /* Nuevo icono de éxito */
+          alt="Success"
+        />
+        <CardContent>
+          <Typography variant="h5" className="confirmation-message">
+            Your flight was booked successfully! ✈️
+          </Typography>
+        </CardContent>
+        <CardActions className="confirmation-buttons">
+          <Button className="confirmation-button">Download PDF</Button>
+          <Button className="confirmation-button" onClick={() => navigate('/')}>
+            Back to Home
+          </Button>
+        </CardActions>
+      </Card>
+    </Box>
+  );
 }
 
-export default Confirmation
+export default Confirmation;
