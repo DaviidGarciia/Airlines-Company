@@ -1,147 +1,67 @@
-import "./Profile.css"
-import { useNavigate } from "react-router-dom"
-import Button from "../../components/Button/Button"
-import { Box,SnackbarContent,TextField} from "@mui/material"
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
+import './Profile.css';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/Button/Button';
+import { Box, Typography, Card, CardContent } from '@mui/material';
 
+function Profile() {
+  const navigate = useNavigate();
 
-function Profile (){
-const navigate = useNavigate()
-    return (
-      <div id="profile-view">
-        <section id="Profile">
-          <div id="titleProfile">
-            <h2 className="title">Profile</h2>
-          </div>
-          <div id="name">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                David
-              </Typography>
-            </CardContent>
-          </div>
+  return (
+    <div id="profile-view">
+      {/* Sección de perfil */}
+      <section id="Profile">
+        <Typography variant="h4" className="title">
+          Profile
+        </Typography>
 
-          <div id="surname">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                García
-              </Typography>
-            </CardContent>
-          </div>
-          <div id="username">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                davidG
-              </Typography>
-            </CardContent>
-          </div>
-          <div id="email">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                amadorgarciadavid@gmail.com
-              </Typography>
-            </CardContent>
-          </div>
-          <div id="phone">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                636666666
-              </Typography>
-            </CardContent>
-          </div>
-          <div id="password">
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                ******
-              </Typography>
-            </CardContent>
-          </div>
-          <div id="buttonSave">
-            <Button size="small" text="Save" />
-          </div>
-        </section>
-        <section id="Flights">
-          <h2 id="titleFlights" className="title">
-            Flights
-          </h2>
-          <div id=" Oferta1" className="Oferta">
-            <h2>Outbound Flights</h2>
-            <Card sx={{ maxwidth: '100vw', display: 'flex' }}>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Gran Canaria Apt. (LPA)
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Fuerteventura Apt. (FUE)
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  08:00:00
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  70 €
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
+        <Typography id="name">David</Typography>
+        <Typography id="surname">García</Typography>
+        <Typography id="username">davidG</Typography>
+        <Typography id="email">amadorgarciadavid@gmail.com</Typography>
+        <Typography id="phone">636666666</Typography>
+        <Typography id="password">******</Typography>
 
-          <div id=" Oferta2 " className="Oferta">
-            <h2>Return Flights</h2>
-            <Card
-              sx={{ maxWidth: '100vw', marginTop: '10px', display: 'flex' }}
-            >
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Fuerteventura Apt. (FUE)
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Gran Canaria Apt. (LPA)
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  08:00:00
-                </Typography>
-              </CardContent>
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  70 €
-                </Typography>
-              </CardContent>
-            </Card>
-          </div>
-          <div id="button">
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginBottom: '50px',
-                marginTop: '50px',
-                gap: '25px',
-              }}
-            >
-              <Button
-                size="small"
-                text="Back to home"
-                onClick={() => {
-                  navigate('/');
-                }}
-              />
-            </Box>
-          </div>
-        </section>
-      </div>
-    );
+        <Box id="buttonSave">
+          <Button size="small" text="Save" />
+        </Box>
+      </section>
+
+      {/* Sección de vuelos */}
+      <section id="Flights">
+        <Typography variant="h4" className="title">
+          Flights
+        </Typography>
+
+        <Card id="Oferta1">
+          <CardContent>
+            <Typography variant="h6">Outbound Flight</Typography>
+            <Typography>
+              Gran Canaria Apt. (LPA) → Fuerteventura Apt. (FUE)
+            </Typography>
+            <Typography>08:00:00 - 70€</Typography>
+          </CardContent>
+        </Card>
+
+        <Card id="Oferta2">
+          <CardContent>
+            <Typography variant="h6">Return Flight</Typography>
+            <Typography>
+              Fuerteventura Apt. (FUE) → Gran Canaria Apt. (LPA)
+            </Typography>
+            <Typography>08:00:00 - 70€</Typography>
+          </CardContent>
+        </Card>
+
+        <Box id="button">
+          <Button
+            size="small"
+            text="Back to home"
+            onClick={() => navigate('/')}
+          />
+        </Box>
+      </section>
+    </div>
+  );
 }
 
-export default Profile
+export default Profile;
