@@ -16,10 +16,10 @@ const {
   getUser
 } = require("../Controllers/Users.controller");
 
-router.get("",checkAuth, getAllUsers);
-router.get("/:id",getBookingFromOneUser);
-router.get("/:id",getOneUsers)
+router.get("",getAllUsers);
 router.get("/:username",getUser);
+/*router.get("/:id",getBookingFromOneUser);
+router.get("/:id",getOneUsers)*/
 router.get("/:id", checkAuth, checkAdmin, getOneUsers); 
 router.put("/:id", checkAuth, checkAdmin, updateUsers);
 router.delete("/:id", deleteUsers);

@@ -24,8 +24,12 @@ const getOneUsers = async (req, res) => {
 };
 const getUser = async (req,res) =>{
   try {
-    const { username } = req.params
-    const oneUsers = await Users.findOne({ username });
+    console.log("ESTA ENTRANDO AQUI")
+    const {username} = req.params
+    const oneUsers = await Users.findOne({
+      where: {username: username }
+    });
+
     if (oneUsers) {
       return res.status(200).json(oneUsers);
     } else {
