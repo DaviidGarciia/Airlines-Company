@@ -42,17 +42,16 @@ const login = async (req, res) => {
     console.log("soy back");
     const user = await Users.findOne({
       where: {
-        username: req.body.username,
-        password: req.body.password,
+        username: req.body.username
       },
     });
     console.log(user);
     if (!user) {
       return res.status(404).send("Username or password wrong");
     }
+    
+    const checkpass = bcrypt.compareSync(req.body.password,user.password);
 
-    const checkpass = req.body.password;
-    console.log(user.password);
     if (checkpass) {
       const payload = { username: req.body.username };
       const token = jwt.sign(payload, "secret", { expiresIn: "1h" });

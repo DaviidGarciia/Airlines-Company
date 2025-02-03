@@ -22,7 +22,19 @@ const getOneUsers = async (req, res) => {
     console.log(error);
   }
 };
-
+const getUser = async (req,res) =>{
+  try {
+    const { username } = req.params
+    const oneUsers = await Users.findOne({ username });
+    if (oneUsers) {
+      return res.status(200).json(oneUsers);
+    } else {
+      return res.status(200).send("No user found");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 const updateUsers = async (req, res) => {
   try {
     const updatedUsers = await Users.update(req.body, {
@@ -78,7 +90,7 @@ const getBookingFromOneUser = async(req,res)=>{
         UserId : getUser, 
       }
     },include=Users)
-    return getBooking
+    return getUser,getBooking
   } catch (error) {
     console.log(error);
   }
@@ -94,5 +106,6 @@ module.exports = {
   deleteUsers,
   createUsers,
   createUsersInBulk,
-  getBookingFromOneUser
+  getBookingFromOneUser,
+  getUser
 };
