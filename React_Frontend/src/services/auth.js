@@ -36,7 +36,10 @@ export const insertFly = async (
   status,
   capacity,
   occupiedPlaces,
-  price
+  price,
+  departureAirportId,
+  arrivalAirportId
+  
 ) => {
   try {
     const { data } = await api.post('/Flights', {
@@ -47,6 +50,8 @@ export const insertFly = async (
       capacity,
       occupiedPlaces,
       price,
+      departureAirportId,
+      arrivalAirportId
     });
     console.log(data);
   } catch (error) {

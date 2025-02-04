@@ -121,7 +121,7 @@ function Profile() {
             </CardContent>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Fuerteventura Apt. (FUE)
+                Tenerife S. Apt. (TFS)
               </Typography>
             </CardContent>
             <CardContent>
@@ -131,7 +131,7 @@ function Profile() {
             </CardContent>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                70 €
+                20 €
               </Typography>
             </CardContent>
           </Card>
@@ -142,7 +142,7 @@ function Profile() {
           <Card sx={{ maxWidth: '100vw', marginTop: '10px', display: 'flex' }}>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Fuerteventura Apt. (FUE)
+                Tenerife S. Apt. (TFS)
               </Typography>
             </CardContent>
             <CardContent>
@@ -152,12 +152,12 @@ function Profile() {
             </CardContent>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                08:00:00
+                18:00:00
               </Typography>
             </CardContent>
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                70 €
+                20 €
               </Typography>
             </CardContent>
           </Card>

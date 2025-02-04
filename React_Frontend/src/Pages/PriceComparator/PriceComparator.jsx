@@ -51,9 +51,9 @@ function PriceComparator() {
     setPriceOngoing(datos.outgoing);
     setPriceReturn(datos.return);
   };
-
+  console.log(flights);
+  
   console.log(flightsOutGoing);
-
   useEffect(() => {
     bringFlight();
   }, []);
